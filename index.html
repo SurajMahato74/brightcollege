@@ -235,6 +235,86 @@ nav.navbar {
  </style>
 
 
+<style>
+  
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden to the left */
+    width: 250px;
+    height: 100%;
+    background-color: #7c1e52; /* Your theme color */
+    padding: 60px;
+    transition: left 0.3s ease; /* Smooth slide-in effect */
+    z-index: 1050;
+    overflow-y: auto;
+    
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #592045; /* Darker shade for hover effect */
+}
+
+.sidebar ul .dropdown-menu {
+    display: none; /* Hidden by default */
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+.sidebar ul .dropdown-menu li a {
+    font-size: 14px;
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    font-size: 30px; /* Increase size if needed */
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;  /* Adjust the top distance */
+    right: 20px; /* Position it on the right */
+    padding: 10px; /* Adjust padding if needed */
+ 
+}
+
+
+/* Hide Sidebar on Desktop */
+@media (min-width: 769px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+</style>
+
 ><style>
 /* General Carousel Styles */
 .carousel {
@@ -484,10 +564,43 @@ nav.navbar {
         </a>
         
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" id="sidebarToggle" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
+
+        <!-- Sidebar -->
+<div id="mobileSidebar" class="sidebar">
+    <button class="close-btn" id="closeSidebar" style="right: 10px;">&times;</button>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#" class="dropdown-toggle">About Us</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Introduction</a></li>
+                <li><a href="#">Principal's Message</a></li>
+                <li><a href="#">Message from Chief</a></li>
+                <li><a href="#">Governing Body</a></li>
+                <li><a href="#">Faculties</a></li>
+                <li><a href="#">Our Team</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">Programs</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Graduate Program (LL.M)</a></li>
+                <li><a href="#">Undergraduate Program (BALLB)</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Students</a></li>
+        <li><a href="#">Notices</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+
+
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -530,6 +643,7 @@ nav.navbar {
         </div>
     </div>
 </nav>
+
 
 
 
@@ -688,7 +802,36 @@ nav.navbar {
     
    
     
-    
+   <script>
+    // Sidebar Toggle
+const sidebar = document.getElementById('mobileSidebar');
+const sidebarToggle = document.getElementById('sidebarToggle');
+const closeSidebar = document.getElementById('closeSidebar');
+
+// Show Sidebar
+sidebarToggle.addEventListener('click', () => {
+    sidebar.style.left = '0'; // Slide in
+});
+
+// Close Sidebar
+closeSidebar.addEventListener('click', () => {
+    sidebar.style.left = '-250px'; // Slide out
+});
+
+// Handle Dropdown Toggles
+document.querySelectorAll('.sidebar .dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const dropdownMenu = this.nextElementSibling;
+        if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'block';
+        }
+    });
+});
+
+   </script> 
 
 
 
