@@ -136,29 +136,45 @@ nav.navbar {
 </style>
 
 
- /* nav responsivness mobile view*/
- <style>
-    /* Top Bar Responsiveness */
+<style>
+
+/* Top Bar Responsiveness */
 @media (max-width: 768px) {
-  .navbar-top .container div:nth-child(1) {
+  .navbar-top .container {
     display: flex;
+    flex-wrap: nowrap; /* Ensure items stay on one line */
+    justify-content: space-between;
     align-items: center;
   }
 
-  /* Hide email and address in mobile mode */
+  /* Display only the mobile number, WhatsApp, Facebook, and login */
+  .navbar-top .container div:nth-child(1) > *:not(:nth-child(1)), /* Exclude phone */
   .navbar-top .container div:nth-child(1) > span:nth-child(2), /* Separator after phone */
   .navbar-top .container div:nth-child(1) > i:nth-child(3), /* Email icon */
-  .navbar-top .container div:nth-child(1) > a, /* Email link */
   .navbar-top .container div:nth-child(1) > span:nth-child(4), /* Separator before address */
-  .navbar-top .container div:nth-child(1) > i:nth-child(5), /* Address icon */
+  .navbar-top .container div:nth-child(1) > i:nth-child(5), /* Location icon */
   .navbar-top .container div:nth-child(1) > span:last-child { /* Address text */
-    display: none;
+    display: none; /* Hide unnecessary elements */
   }
 
-  /* Adjust social icons to align neatly */
+  /* Keep only the phone, WhatsApp, Facebook, and Login on one line */
+  .navbar-top .container div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between elements */
+  }
+
+  /* Adjust social icons and login alignment */
   .navbar-top .container div:nth-child(2) {
+    display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    align-items: center;
+    gap: 10px; /* Add spacing for neat layout */
+  }
+
+  /* Font size adjustment for smaller devices */
+  .navbar-top {
+    font-size: 12px;
   }
 }
 
