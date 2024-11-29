@@ -18,120 +18,6 @@ body {
 
 
 
-/* Top Bar */
-.navbar-top {
-    background-color: #49a2ad;
-    color: white;
-    font-size: 14px;
-    position: fixed;
-    width: 100%;
-    z-index: 1030;
-    top: 0;
-    padding: 5px 0;
-    
-}
-/* Main Navbar */
-nav.navbar {
-    position: fixed;
-    top: 30px; /* Adjust to prevent overlap with the top bar */
-    width: 100%;
-    z-index: 1029;
-    background: white;
-    transition: all 0.3s ease;
-}
-
-.navbar.fixed {
-    top: 30px; /* Ensure navbar stays at the top when fixed */
-    padding: 10px 0; /* Reduced padding when navbar is fixed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for fixed navbar */
-}
-
-.navbar-toggler {
-    transition: margin-top 0.3s ease;
-}
-
-.navbar.fixed .navbar-toggler {
-    margin-top: -30px; /* Move navbar button up when fixed */
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-brand img {
-    max-height: 70px;
-    margin-right: 10px;
-    transition: max-height 0.3s ease;
-}
-
-.navbar-brand .org-name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.navbar-brand .org-name span {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1.1;
-}
-
-/* Ensure nav-item fills the full height of the navbar */
-.navbar-nav .nav-item {
-    position: relative;
-    margin: 0; /* Remove margin */
-    background-color: transparent; /* Initially hidden background */
-    padding: 33px 10px;
-    display: flex;
-    align-items: center; /* Align contents vertically */
-    transition: background-color 0.3s ease; /* Smooth background transition */
-}
-
-/* Add hover effect with box-like appearance */
-.navbar-nav .nav-item:hover {
-    background-color: #49a2ad; /* Background color on hover */
-    color: white;
-}
-
-/* Style nav links to match full height of the nav-item */
-.navbar-nav .nav-item .nav-link {
-    padding: 0 15px; /* Only horizontal padding */
-    height: 100%; /* Full height of the parent nav-item */
-    display: flex;
-    align-items: center; /* Vertically align text */
-    justify-content: center; /* Center text horizontally */
-    color: blue; /* Text color */
-}
-
-/* Style for the navbar */
-.navbar {
-    height: 90px; /* Set navbar height explicitly if needed */
-}
-
-
-
-
-/* Dropdown Menu */
-.dropdown-menu {
-    position: absolute;
-    display: none;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    margin-top: -1px;
-}
-
-.nav-item:hover .dropdown-menu {
-    display: block;
-}
-
-
-.dropdown-item:hover {
-    background-color: #49a2ad;
-}
-
 
 
 /* Top Bar */
@@ -247,9 +133,83 @@ nav.navbar {
 .dropdown-item:hover {
     background-color: #49a2ad;
 }
+</style>
 
 
-    
+ /* nav responsivness mobile view*/
+ <style>
+    /* Top Bar Responsiveness */
+@media (max-width: 768px) {
+  .navbar-top .container div:nth-child(1) {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hide email and address in mobile mode */
+  .navbar-top .container div:nth-child(1) > span:nth-child(2), /* Separator after phone */
+  .navbar-top .container div:nth-child(1) > i:nth-child(3), /* Email icon */
+  .navbar-top .container div:nth-child(1) > a, /* Email link */
+  .navbar-top .container div:nth-child(1) > span:nth-child(4), /* Separator before address */
+  .navbar-top .container div:nth-child(1) > i:nth-child(5), /* Address icon */
+  .navbar-top .container div:nth-child(1) > span:last-child { /* Address text */
+    display: none;
+  }
+
+  /* Adjust social icons to align neatly */
+  .navbar-top .container div:nth-child(2) {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}
+
+/* Main Navbar Responsiveness */
+@media (max-width: 768px) {
+  nav.navbar {
+    top: 40px; /* Add margin between the top bar and navbar */
+    height: auto; /* Allow flexibility for height */
+  }
+
+  /* Adjust the logo section */
+  nav.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hide organization name (text) next to the logo */
+  nav.navbar .navbar-brand .org-name {
+    display: none;
+  }
+
+  /* Hide nav links and keep only the logo and menu bar */
+  nav.navbar .collapse {
+    display: none; /* Hide navigation links in mobile */
+  }
+
+  /* Show the menu toggle button */
+  nav.navbar .navbar-toggler {
+    display: block; /* Ensure visibility of toggle button */
+  }
+}
+
+/* Fine-tuning menu items in mobile mode */
+@media (max-width: 576px) {
+  nav.navbar {
+    padding: 10px 0; /* Adjust padding for smaller devices */
+  }
+
+  .navbar-nav .nav-item {
+    padding: 20px 10px; /* Reduce padding for better spacing */
+  }
+
+  .navbar-toggler {
+    margin-right: 10px; /* Add some margin to the toggle button */
+  }
+}
+
+ </style>
+
+<style>
+
         /* Carousel styles */
     .carousel {
       height: 100vh;
