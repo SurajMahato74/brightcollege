@@ -629,6 +629,44 @@ nav.navbar {
     color: white; /* Icon color */
 }
 
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .stats-section .stat {
+        display: flex; /* Use flexbox for layout */
+        align-items: center; /* Align items vertically centered */
+        justify-content: center; /* Center the content */
+        text-align: left; /* Align text to the left for readability */
+        margin-bottom: 20px; /* Reduced margin for better spacing */
+    }
+
+    .stats-section .stat .icon {
+        
+        border-radius: 50%;
+        padding: 12px; /* Adjusted for smaller screens */
+        display: inline-block;
+        margin-right: 15px; /* Space between icon and text */
+    }
+
+    .stats-section .stat h2 {
+        font-size: 36px; /* Adjusted font size for mobile */
+        margin: 0;
+        
+    }
+
+    .stats-section .stat p {
+        font-size: 16px; /* Adjusted font size for mobile */
+        margin: 0;
+      
+    }
+
+    /* Adjust the icon size for mobile */
+    .stats-section .stat i {
+        font-size: 28px; /* Reduced icon size for mobile */
+        
+    }
+}
+
+
 </style>
 
 
