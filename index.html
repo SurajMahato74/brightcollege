@@ -518,6 +518,120 @@ nav.navbar {
 </style>
 
 
+<style>
+.mission-section {
+    position: relative;
+    color: white;
+    background-color: #7c1e52;
+    background-image: url('brightfirstbg.jpg'); /* Your background image */
+    background-size: cover; /* Ensures the image covers the section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    text-align: center;
+    padding: 80px 20px; /* Adjusted for more padding */
+    overflow: hidden; /* Ensures nothing overflows the section */
+}
+
+
+.mission-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the section without stretching */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Image stays at the bottom */
+}
+
+.overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(124, 30, 82, 0.8); /* Overlay color with opacity, adjust as needed */
+    z-index: 2; /* Overlay stays above the image but below the text */
+}
+
+.mission-caption {
+    position: relative;
+    z-index: 3; /* Text stays on top of the overlay */
+    color: white; /* Ensure text is white */
+    padding: 20px; /* Add padding for spacing */
+}
+
+
+
+
+.mission-caption h1 {
+    font-size: 36px; /* Adjust the font size */
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.mission-caption h2 {
+    font-size: 24px; /* Adjust for better readability */
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-style: italic; /* Style for the description */
+}
+
+.mission-caption p {
+    font-size: 18px; /* Font size for the paragraph */
+    color: #ffffff;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional text shadow for better readability */
+}
+
+</style>
+
+
+<style>
+    .stats-section {
+  
+    padding: 50px 20px;
+    margin-top: 50px; /* Added margin to push the section down */
+}
+
+.stats-section .stat {
+    text-align: center;
+    margin-bottom: 30px; /* Increased margin for better spacing between stats */
+    margin-left: 30px;
+}
+
+.stats-section .stat h2 {
+    font-size: 48px; /* Increased font size for the number */
+    color: white;
+    font-weight: bold;
+}
+
+.stats-section .stat p {
+    font-size: 18px; /* Increased font size for the text */
+    color: white;
+    font-weight: normal;
+}
+
+.stats-section .stat .icon {
+    
+    border-radius: 50%;
+    padding: 20px; /* Increased padding for bigger icons */
+    display: inline-block;
+    margin-bottom: 15px; /* Increased margin for better spacing */
+}
+
+.stats-section .stat i {
+    font-size: 36px; /* Increased icon size */
+    color: white; /* Icon color */
+}
+
+</style>
+
+
 <div id="popup" class="popup" style="display: none;">
     <div class="popup-content">
       <button class="close-btn" onclick="closePopup()">×</button>
@@ -532,13 +646,13 @@ nav.navbar {
    <div class="navbar-top" >
     <div class="container d-flex justify-content-between align-items-center">
         <div id="top-bar" style="display: flex; align-items: center;">
-            <i class="fas fa-phone-alt"></i> +977-1-5413093/94
+            <i class="fas fa-phone-alt"></i> 9805996874
             <span class="mx-2">|</span>
             <i class="fas fa-envelope"></i>
-            <a href="#" style="color: white;">info@nalc.edu.np</a>
+            <a href="#" style="color: white;">info@bvlc.edu.np</a>
             <span class="mx-2">|</span>
             <i id="address-icon" class="fas fa-map-marker-alt" style="display: inline;"></i>
-            <span id="address-text" style="display: inline;">Sanepa Height, Lalitpur Nepal</span>
+            <span id="address-text" style="display: inline;">Mahendra Chock, Morang Nepal</span>
         </div>
         
        
@@ -698,7 +812,7 @@ nav.navbar {
   
   <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4 yellow-section" style="margin-top: -100px; z-index: 2; background-color: #7c1e52; padding: 20px; border-radius: 10px 10px 0 0px; color: white;">
+        <div class="col-md-4 yellow-section" style="margin-top: -101px; z-index: 2; background-color: #7c1e52; padding: 20px; border-radius: 10px 10px 0 0px; color: white;">
             <!-- Header Section -->
             <div style="background:transparent; padding: 20px; border-radius: 10px 10px 0 0px; ">
                 <p style="font-size: 18px; font-weight: bold; text-align: center; margin: 0;">NOTICE BOARD</p>
@@ -743,50 +857,135 @@ nav.navbar {
         
         
         
-
         <div class="col-md-8 blue-section">
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-brain icon"></i>
+                        <i class="fas fa-graduation-cap icon" style="color: #7c1e52;"></i> <!-- Changed icon -->
                         <div class="ms-3">
-                            <h5>Industrial Ideas</h5>
-                            <p>Ignoring a warning can cause much mourning</p>
+                            <h5>Academic Excellence</h5> <!-- Updated title -->
+                            <p>Providing quality education and shaping future leaders.</p> <!-- Updated text -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-hard-hat icon"></i>
+                        <i class="fas fa-chalkboard-teacher icon" style="color: #7c1e52;"></i> <!-- Changed icon -->
                         <div class="ms-3">
-                            <h5>Expert Engineers</h5>
-                            <p>If you're going to be stupid, you have to be tough!</p>
+                            <h5>Experienced Faculty</h5> <!-- Updated title -->
+                            <p>Our faculty members are experts and dedicated </p> <!-- Updated text -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-robot icon"></i>
+                        <i class="fas fa-book-reader icon" style="color: #7c1e52;"></i> <!-- Changed icon -->
                         <div class="ms-3">
-                            <h5>Modern Equipment</h5>
-                            <p>Life did not begin by accident, don't end it as one</p>
+                            <h5>Comprehensive Curriculum</h5> <!-- Updated title -->
+                            <p>Our curriculum ensures a well-rounded education </p> <!-- Updated text -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-cogs icon"></i>
+                        <i class="fas fa-users icon" style="color: #7c1e52;"></i> <!-- Changed icon -->
                         <div class="ms-3">
-                            <h5>Projects Support</h5>
-                            <p>Make your plant the best, safe all the rest</p>
+                            <h5>Community Engagement</h5> <!-- Updated title -->
+                            <p>Encouraging collaboration and student networks.</p> <!-- Updated text -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+
+
+    </div> 
 </div>
 
+
+<div class="mission-section">
+    <img alt="Company logo" class="mb-3" height="50" src="brightlogo.png" width="50"/>
+    <div class="overlay"></div>
+    <div class="mission-caption">
+    <h1>Our Mission</h1>
+    <h2>Industrial engineering, engineering dealing with the optimization of complex industrial processes or systems</h2>
+    <p>Safety records don't happen by accident</p>
+
+    <div class="stats-section">
+        <div class="container">
+         <div class="row">
+            
+          <div class="col-6 col-md-2 stat">
+           <div class="icon">
+            <i class="fas fa-comment-dots">
+            </i>
+           </div>
+           <h2>
+            67+
+           </h2>
+           <p>
+            Years of Experience
+           </p>
+          </div>
+          <div class="col-6 col-md-2 stat">
+           <div class="icon">
+            <i class="fas fa-tasks">
+            </i>
+           </div>
+           <h2>
+            25k
+           </h2>
+           <p>
+            Projects Done
+           </p>
+          </div>
+          <div class="col-6 col-md-2 stat">
+           <div class="icon">
+            <i class="fas fa-award">
+            </i>
+           </div>
+           <h2>
+            99+
+           </h2>
+           <p>
+            Awards Winning
+           </p>
+          </div>
+          <div class="col-6 col-md-2 stat">
+           <div class="icon">
+            <i class="fas fa-cogs">
+            </i>
+           </div>
+           <h2>
+            78
+           </h2>
+           <p>
+            Modern Systems
+           </p>
+          </div>
+          <div class="col-6 col-md-2 stat">
+           <div class="icon">
+            <i class="fas fa-users">
+            </i>
+           </div>
+           <h2>
+            13k
+           </h2>
+           <p>
+            Expert Workers
+           </p>
+          </div>
+         </div>
+        </div>
+</div>
+
+</div>
+
+   
+   </div>
+ 
+ 
 
 
 
