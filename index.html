@@ -28,12 +28,6 @@ html {
     overflow-x: hidden; /* Ensure no horizontal scroll at the root level */
 }
 
-/* Ensure elements do not exceed viewport width */
-img, video, iframe {
-    max-width: 100%; /* Avoid large media causing overflow */
-    height: auto;    /* Maintain aspect ratio */
-}
-
 
 
 
@@ -334,106 +328,64 @@ nav.navbar {
 
 </style>
 
-><style>
-/* General Carousel Styles */
+<style>
 .carousel {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .carousel-item {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 100%;
-  height: 100%;
-  transition: transform 1.5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    display: block;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Decreased opacity of the image */
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .carousel-item.active {
-  transform: translateX(0%);
-  left: 0;
+    opacity: 1;
+    transform: translateX(0); /* Fully visible */
+    z-index: 2;
 }
 
-.carousel-item.previous {
-  transform: translateX(-100%);
+.carousel-item.exit-left {
+    opacity: 0;
+    transform: translateX(-100%); /* Slide out to the left */
+    z-index: 1;
 }
 
-.carousel-item.next {
-  transform: translateX(100%);
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
- 
-  object-fit: cover;
+.carousel-item.enter-right {
+    opacity: 1;
+    transform: translateX(0); /* Slide in from the right */
+    z-index: 2;
 }
 
 .carousel-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #001f3f; /* Overlay with semi-transparency */
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 0, 22, 0.9); /* Increased opacity of overlay */
+    z-index: 1;
 }
-
-/* Content Animation */
 .carousel-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 70%;
-  text-align: center;
-  color: #fff;
+
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    opacity: 1; /* Fully visible immediately */
+    transition: none; /* No transition delay */
 }
 
-.carousel-caption .animate-content {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeSlideIn 1.5s ease-in-out forwards;
-}
-
-/* Animation Keyframes */
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.carousel-caption .btn {
-  background-color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  color:  #001f3f;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .carousel-caption h1 {
-    font-size: 28px;
-  }
-
-  .carousel-caption p {
-    font-size: 14px;
-  }
+.carousel-item:not(.active) .carousel-caption {
+    opacity: 0; /* Hidden when slide is not active */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out when leaving */
 }
 </style>
 
@@ -996,55 +948,29 @@ nav.navbar {
 
 
 
-
 <!-- Carousel -->
-<div class="carousel">
-   
-      
-      
-
-      <div class="carousel-item active">
-        <div class="carousel-item active" style="background-image: url('brightsecondbg.jpg');">
+<div id="carouselExample" class="carousel" >
+    <div class="carousel-item active" style="background-image: url('brightsecondbg.jpg'); background-size: cover;">
         <div class="carousel-overlay"></div>
-        <div class="carousel-caption">
-            <h1 class="animate-content">Shape Your Legal Career</h1>
-            <p class="animate-content">
-                Offering bachelor's and master's programs in law, designed to prepare you for success in the legal field.
-            </p>
+        <div class="carousel-caption" style="margin-top: -60px;">
+            <h1>Shape Your Legal Career</h1>
+            <p>Offering bachelor's and master's programs in law, designed to prepare you for success in the legal field.</p>
             <button class="btn">Discover Programs</button>
         </div>
     </div>
-    
 
-    <div class="carousel-item" style="background-image: url(brightfirstbg.jpg);">
-  
-    <div class="carousel-overlay"></div>
-    <div class="carousel-caption">
-        <h1 class="animate-content">Excellence in Legal Education</h1>
-        <p class="animate-content">
-            Study at Nepal's premier law college and embark on a journey to become a skilled and ethical legal professional.
-        </p>
-        <button class="btn">Learn More</button>
+    <div class="carousel-item" style="background-image: url('brightfirstbg.jpg'); background-size: cover;">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption" style="margin-top: -40px;">
+            <h1>Excellence in Legal Education</h1>
+            <p>Study at Nepal's premier law college and embark on a journey to become a skilled and ethical legal professional.</p>
+            <button class="btn">Learn More</button>
+        </div>
     </div>
 </div>
 
 
-  </div>
 
-    <!-- Navigation Controls -->
-    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </a>
-</div>
-
-
-
-  
   <div class="container-fluid">
     <div class="row">
         <div class="col-md-4 yellow-section" style="margin-top: -101px; z-index: 2; background-color: #7c1e52; padding: 20px; border-radius: 10px 10px 0 0px; color: white;">
@@ -1478,6 +1404,36 @@ document.querySelectorAll('.sidebar .dropdown-toggle').forEach(toggle => {
 
    </script> 
 
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    const showSlide = (index) => {
+        const totalSlides = carouselItems.length;
+        const previousIndex = currentIndex;
+        currentIndex = index;
+
+        // Remove existing classes
+        carouselItems.forEach((item) => {
+            item.classList.remove('active', 'exit-left', 'enter-right');
+        });
+
+        // Add animation classes
+        carouselItems[previousIndex].classList.add('exit-left'); // Slide out current
+        carouselItems[currentIndex].classList.add('enter-right', 'active'); // Slide in next
+    };
+
+    const nextSlide = () => {
+        const nextIndex = (currentIndex + 1) % carouselItems.length;
+        showSlide(nextIndex);
+    };
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 5000);
+});
+
+</script>
 
 
 <script>
