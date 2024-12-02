@@ -9,12 +9,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Global Styles */
-/* Global Styles */
+       /* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Includes padding and border in element's width/height */
+}
+
+/* Body styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
+
+/* Optional: Prevent unexpected behavior on the root element */
+html {
+    overflow-x: hidden; /* Ensure no horizontal scroll at the root level */
+}
+
+/* Ensure elements do not exceed viewport width */
+img, video, iframe {
+    max-width: 100%; /* Avoid large media causing overflow */
+    height: auto;    /* Maintain aspect ratio */
+}
+
 
 
 
