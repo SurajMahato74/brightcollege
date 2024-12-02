@@ -373,15 +373,48 @@ nav.navbar {
     background-color: rgba(3, 0, 22, 0.9); /* Increased opacity of overlay */
     z-index: 1;
 }
-.carousel-caption {
 
+
+/* Adjusting the carousel caption width */
+.carousel-caption {
     position: absolute;
-    bottom: 10%;
+    bottom: 180px; /* Adjust this value to position it more appropriately */
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    opacity: 1; /* Fully visible immediately */
-    transition: none; /* No transition delay */
+    transform: translateX(-50%);
+    width: 80%; /* Increase width of the caption */
+    color: white;
+    text-align: center;
+    
 }
+
+/* Adding styling for the button inside the caption */
+.carousel-caption .btn {
+    background-color: #6a1b9a; /* Purple color */
+    color: white;
+    padding: 10px 20px; /* Adjust padding for button */
+    border-radius: 5px; /* Rounded corners */
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-caption .btn:hover {
+    background-color: #9c4dcc; /* Lighter purple on hover */
+}
+
+/* Ensuring button visibility */
+.carousel-caption .btn {
+    display: inline-block; /* Ensuring the button is an inline block */
+    margin-top: 10px; /* Space between caption and button */
+}
+
+/* Optional: Make button larger */
+.carousel-caption .btn-lg {
+    font-size: 1.2rem; /* Larger button font size */
+    padding: 15px 30px;
+}
+
+
 
 .carousel-item:not(.active) .carousel-caption {
     opacity: 0; /* Hidden when slide is not active */
